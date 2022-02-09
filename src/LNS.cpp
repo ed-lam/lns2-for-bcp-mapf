@@ -189,12 +189,15 @@ bool LNS::run()
     if (average_group_size > 0)
         average_group_size /= (double)(iteration_stats.size() - 1);
 
-    cout << getSolverName() << ": "
-         << "runtime = " << runtime << ", "
-         << "iterations = " << iteration_stats.size() << ", "
-         << "solution cost = " << sum_of_costs << ", "
-         << "initial solution cost = " << initial_sum_of_costs << ", "
-         << "failed iterations = " << num_of_failures << endl;
+    if (screen >= 1)
+    {
+        cout << getSolverName() << ": "
+            << "runtime = " << runtime << ", "
+            << "iterations = " << iteration_stats.size() << ", "
+            << "solution cost = " << sum_of_costs << ", "
+            << "initial solution cost = " << initial_sum_of_costs << ", "
+            << "failed iterations = " << num_of_failures << endl;
+    }
     return true;
 }
 
