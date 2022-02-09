@@ -438,7 +438,7 @@ void MDD::increaseBy(const ConstraintTable&ct, int dLevel, SingleAgentSolver* so
     }
 
     std::queue<MDDNode*> bfs_q({goal_node});
-    boost::unordered_set<MDDNode*> closed;
+    unordered_set<MDDNode*> closed;
 
     while (!bfs_q.empty()){
       auto ptr = bfs_q.front();

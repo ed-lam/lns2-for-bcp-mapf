@@ -6,8 +6,55 @@
 #include <boost/unordered_set.hpp>
 #include "MDD.h"
 
+namespace lns
+{
+
 typedef std::pair<MDDNode*, MDDNode*> node_pair;
 typedef std::pair<node_pair, node_pair> edge_pair;
+
+}
+
+namespace std
+{
+
+using namespace lns;
+
+template<>
+struct hash<std::pair<MDDNode*, MDDNode*>> {
+    size_t operator()(std::pair<MDDNode*, MDDNode*> const& p) const noexcept {
+        auto a = hash<MDDNode*>{}(p.first);
+        auto b = hash<MDDNode*>{}(p.second);
+        return hash_combine(a, b);
+    }
+
+    static size_t hash_combine(size_t seed, size_t v) noexcept {
+        // see https://www.boost.org/doc/libs/1_55_0/doc/html/hash/reference.html#boost.hash_combine
+        seed ^= v + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+        return seed;
+    }
+};
+
+template<>
+struct hash<std::pair<node_pair, node_pair>> {
+    size_t operator()(std::pair<node_pair, node_pair> const& p) const noexcept {
+        auto a = hash<node_pair>{}(p.first);
+        auto b = hash<node_pair>{}(p.second);
+        return hash_combine(a, b);
+    }
+
+    static size_t hash_combine(size_t seed, size_t v) noexcept {
+        // see https://www.boost.org/doc/libs/1_55_0/doc/html/hash/reference.html#boost.hash_combine
+        seed ^= v + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+        return seed;
+    }
+};
+
+}
+
+namespace lns
+{
+
+using namespace lns;
 
 class ConstraintPropagation{
 private:
@@ -35,7 +82,7 @@ private:
   void add_fwd_edge_mutex(MDDNode* node_a, MDDNode* node_a_to,
                       MDDNode* node_b, MDDNode* node_b_to);
 
-  // boost::unordered_set<node_pair> node_cons;
+  // unordered_set<node_pair> node_cons;
 
   /*
     A Mutex is in the form of <<node*, node*>, <node*, node*>>
@@ -50,8 +97,8 @@ public:
     mdd0(mdd0), mdd1(mdd1)
   {}
 
-  boost::unordered_set<edge_pair> fwd_mutexes;
-  boost::unordered_set<edge_pair> bwd_mutexes;
+  unordered_set<edge_pair> fwd_mutexes;
+  unordered_set<edge_pair> bwd_mutexes;
 
   void init_mutex();
   void fwd_mutex_prop();
@@ -75,5 +122,7 @@ public:
 
   std::pair<std::vector<Constraint>, std::vector<Constraint>> generate_constraints(int, int);
 };
+
+}
 
 #endif

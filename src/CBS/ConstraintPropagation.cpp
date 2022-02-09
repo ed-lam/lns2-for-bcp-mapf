@@ -6,6 +6,26 @@
 #include <utility>
 #include <iostream>
 
+namespace std
+{
+
+template<>
+struct hash<std::pair<int, int>> {
+    size_t operator()(std::pair<int, int> const& p) const noexcept {
+        auto a = hash<int>{}(p.first);
+        auto b = hash<int>{}(p.second);
+        return hash_combine(a, b);
+    }
+
+    static size_t hash_combine(size_t seed, size_t v) noexcept {
+        // see https://www.boost.org/doc/libs/1_55_0/doc/html/hash/reference.html#boost.hash_combine
+        seed ^= v + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+        return seed;
+    }
+};
+
+}
+
 namespace lns
 {
 
@@ -313,7 +333,7 @@ int ConstraintPropagation::_feasible(int level_0, int level_1){
 
   int not_allowed_loc = goal_ptr_i->location;
 
-  boost::unordered_set<MDDNode*> closed;
+  unordered_set<MDDNode*> closed;
 
   while (!dfs_stack.empty()){
     auto ptr = dfs_stack.top();
@@ -380,10 +400,10 @@ std::pair<std::vector<Constraint>, std::vector<Constraint>> ConstraintPropagatio
     int l = level_0;
     // std::vector<std::pair<int, int>> cons_vec_0;
     // std::vector<std::pair<int, int>> cons_vec_1;
-    boost::unordered_set<std::pair<int, int>> cons_set_1;
-    boost::unordered_set<MDDNode*> level_i({goal_ptr_i});
-    // boost::unordered_set<MDDNode*> level_j(non_mutexed.begin(), non_mutexed.end());
-    boost::unordered_set<MDDNode*> level_j;
+    unordered_set<std::pair<int, int>> cons_set_1;
+    unordered_set<MDDNode*> level_i({goal_ptr_i});
+    // unordered_set<MDDNode*> level_j(non_mutexed.begin(), non_mutexed.end());
+    unordered_set<MDDNode*> level_j;
 
     for (auto& it:mdd_l->levels[level_0]){
       if (it->cost <= level_1){
@@ -418,8 +438,8 @@ std::pair<std::vector<Constraint>, std::vector<Constraint>> ConstraintPropagatio
       }
 
       // go to prev levels
-      boost::unordered_set<MDDNode*> level_i_prev;
-      boost::unordered_set<MDDNode*> level_j_prev;
+      unordered_set<MDDNode*> level_i_prev;
+      unordered_set<MDDNode*> level_j_prev;
       for (auto ptr_i:level_i){
         for (auto parent_ptr:ptr_i->parents){
           level_i_prev.insert(parent_ptr);
@@ -439,7 +459,7 @@ std::pair<std::vector<Constraint>, std::vector<Constraint>> ConstraintPropagatio
 
     int not_allowed_loc = goal_ptr_i->location;
 
-    boost::unordered_set<MDDNode*> closed;
+    unordered_set<MDDNode*> closed;
     std::deque<MDDNode*> dfs_stack(non_mutexed.begin(), non_mutexed.end());
 
     while (!dfs_stack.empty()){
@@ -488,8 +508,8 @@ std::pair<std::vector<Constraint>, std::vector<Constraint>> ConstraintPropagatio
 
 
   // goal nodes are mutexed
-  boost::unordered_set<MDDNode*> cons_0, cons_1;
-  boost::unordered_set<MDDNode*> blue_0, blue_1;
+  unordered_set<MDDNode*> cons_0, cons_1;
+  unordered_set<MDDNode*> blue_0, blue_1;
 
   for (int lvl = 0; lvl <= level_0; lvl ++){
     std::vector<MDDNode*> nodes_i, nodes_j;

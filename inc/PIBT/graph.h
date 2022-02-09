@@ -55,7 +55,7 @@ protected:
   Nodes nodes;
 
   // cache of searched path
-  std::unordered_map<std::string, KnownPath*> knownPaths;
+  unordered_map<std::string, KnownPath*> knownPaths;
 
   // random generator
   std::mt19937* MT;

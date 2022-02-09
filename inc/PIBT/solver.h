@@ -4,7 +4,7 @@
 #include <vector>
 #include <algorithm>
 #include <chrono>
-#include <eigen3/Eigen/Core>
+#include <Eigen/Core>
 #include <unordered_map>
 #include <unordered_set>
 #include <boost/heap/fibonacci_heap.hpp>
