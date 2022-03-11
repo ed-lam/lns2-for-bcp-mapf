@@ -2,6 +2,7 @@
 #include "common.h"
 #include "SpaceTimeAStar.h"
 #include "SIPP.h"
+#include <random>
 
 namespace lns
 {
@@ -70,6 +71,8 @@ protected:
     // helper variables
     high_resolution_clock::time_point start_time;
     Neighbor neighbor;
+
+    std::mt19937 rng{0};
 
     void rouletteWheel();
 };
