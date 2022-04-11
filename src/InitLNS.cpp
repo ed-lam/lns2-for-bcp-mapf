@@ -370,6 +370,7 @@ bool InitLNS::runPP()
 
 bool InitLNS::getInitialSolution()
 {
+    set<pair<int, int>> colliding_pairs;
     neighbor.agents.clear();
     neighbor.agents.reserve(agents.size());
     sum_of_costs = 0;
@@ -380,18 +381,21 @@ bool InitLNS::getInitialSolution()
         else
         {
             sum_of_costs += (int)agents[i].path.size() - 1;
+            if (init_sol_injected)
+            {
+                updateCollidingPairs(colliding_pairs, agents[i].id, agents[i].path);
+            }
             path_table.insertPath(agents[i].id, agents[i].path);
         }
     }
     int remaining_agents = (int)neighbor.agents.size();
     std::shuffle(neighbor.agents.begin(), neighbor.agents.end(), rng);
     ConstraintTable constraint_table(instance.num_of_cols, instance.map_size, nullptr, &path_table);
-    set<pair<int, int>> colliding_pairs;
     for (auto id : neighbor.agents)
     {
         agents[id].path = agents[id].path_planner->findPath(constraint_table);
         assert(!agents[id].path.empty() && agents[id].path.back().location == agents[id].path_planner->goal_location);
-        if (agents[id].path_planner->num_collisions > 0)
+        // if (agents[id].path_planner->num_collisions > 0)
             updateCollidingPairs(colliding_pairs, agents[id].id, agents[id].path);
         sum_of_costs += (int)agents[id].path.size() - 1;
         remaining_agents--;

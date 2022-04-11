@@ -49,6 +49,8 @@ public:
     void writeResultToFile(const string & file_name) const;
     void writePathsToFile(const string & file_name) const;
     string getSolverName() const override { return "LNS(" + init_algo_name + ";" + replan_algo_name + ")"; }
+
+    auto& get_path_table() { return path_table; }
 private:
     InitLNS* init_lns = nullptr;
     string init_algo_name;
@@ -67,6 +69,7 @@ private:
 
     bool runEECBS();
     bool runCBS();
+    bool runInjected();
     bool runPP();
     bool runPIBT();
     bool runPPS();

@@ -65,6 +65,7 @@ bool LNS::run()
         {
             init_lns = new InitLNS(instance, agents, time_limit - initial_solution_runtime,
                     replan_algo_name,init_destory_name, neighbor_size, screen);
+            init_lns->init_sol_injected = (init_algo_name == "INJECTED");
             succ = init_lns->run();
             if (succ) // accept new paths
             {
@@ -223,6 +224,8 @@ bool LNS::getInitialSolution()
         succ = runWinPIBT();
     else if (init_algo_name == "CBS")
         succ = runCBS();
+    else if (init_algo_name == "INJECTED")
+        succ = runInjected();
     else
     {
         cerr <<  "Initial MAPF solver " << init_algo_name << " does not exist!" << endl;
@@ -358,6 +361,10 @@ bool LNS::runCBS()
             num_of_failures++;
     }
     return succ;
+}
+bool LNS::runInjected()
+{
+    return false;
 }
 bool LNS::runPP()
 {
