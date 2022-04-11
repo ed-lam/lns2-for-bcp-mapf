@@ -2,6 +2,11 @@
 #include "Instance.h"
 #include "ConstraintTable.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 class LLNode // low-level node
 {
 public:
@@ -115,7 +120,7 @@ public:
 	// int getGoalLocation() const {return instance.goal_locations[agent]; }
 
 	SingleAgentSolver(const Instance& instance, int agent) :
-		instance(instance), //agent(agent), 
+		instance(instance), //agent(agent),
 		start_location(instance.start_locations[agent]),
 		goal_location(instance.goal_locations[agent])
 	{
@@ -147,3 +152,4 @@ protected:
 	int get_DH_heuristic(int from, int to) const { return abs(my_heuristic[from] - my_heuristic[to]); }
 };
 
+}

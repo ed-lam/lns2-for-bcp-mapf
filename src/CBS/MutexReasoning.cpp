@@ -1,6 +1,10 @@
 #include "MutexReasoning.h"
 #include "ConstraintPropagation.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 shared_ptr<Conflict> MutexReasoning::run(int a1, int a2, CBSNode& node, MDD* mdd_1, MDD* mdd_2)
 {
@@ -80,5 +84,7 @@ shared_ptr<Conflict> MutexReasoning::findMutexConflict(int a1, int a2, CBSNode& 
   }
 
   return conflict_to_return;
+
+}
 
 }

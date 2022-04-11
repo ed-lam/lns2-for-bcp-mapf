@@ -4,6 +4,11 @@
 #include "MDD.h"
 #include "SingleAgentSolver.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 typedef std::vector <Constraint> con_vec;
 
 class IPMutexPropagation{
@@ -36,3 +41,5 @@ public:
 };
 
 #endif
+
+}

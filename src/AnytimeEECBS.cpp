@@ -1,6 +1,10 @@
 #include "AnytimeEECBS.h"
 #include "ECBS.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 void AnytimeEECBS::run()
 {
@@ -168,3 +172,4 @@ void AnytimeEECBS::writeResultToFile(string file_name) const
     stats.close();
 }
 
+}

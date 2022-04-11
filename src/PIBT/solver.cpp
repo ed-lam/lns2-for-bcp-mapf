@@ -10,6 +10,10 @@
 #include "util.h"
 #include <typeinfo>
 
+namespace lns
+{
+
+using namespace lns;
 
 Solver::Solver(Problem* _P) : P(_P) {
   std::random_device seed_gen;
@@ -193,4 +197,6 @@ std::string Solver::logStr() {
   str += P->logStr();
 
   return str;
+}
+
 }

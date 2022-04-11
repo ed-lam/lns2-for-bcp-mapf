@@ -4,6 +4,10 @@
 #include <chrono>       // std::chrono::system_clock
 #include "SpaceTimeAStar.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 // takes the paths_found_initially and UPDATE all (constrained) paths found for agents from curr to start
 void GCBS::updatePaths(GCBSNode* curr)
@@ -756,4 +760,6 @@ bool GCBS::terminate()
         return true;
     }
     return false;
+}
+
 }

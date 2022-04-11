@@ -4,6 +4,10 @@
 
 #include "graph.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 class Grid : public Graph {
 protected:
@@ -29,3 +33,5 @@ public:
 
   virtual std::string logStr();
 };
+
+}

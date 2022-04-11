@@ -6,6 +6,12 @@
 #include <algorithm>
 #include <unordered_map>
 #include "node.h"
+#include "common.h"
+
+namespace lns
+{
+
+using namespace lns;
 
 using Nodes = std::vector<Node*>;
 using Paths = std::vector<Nodes>;
@@ -112,3 +118,5 @@ public:
 
   virtual std::string logStr() { return ""; };
 };
+
+}

@@ -13,6 +13,11 @@
 #include <boost/unordered_set.hpp>
 #include <boost/unordered_map.hpp>
 
+namespace lns
+{
+
+using namespace lns;
+
 using boost::heap::pairing_heap;
 using boost::heap::compare;
 using boost::unordered_map;
@@ -91,3 +96,4 @@ struct PIBTPPS_option{
     }
 };*/
 
+}

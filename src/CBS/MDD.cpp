@@ -2,6 +2,11 @@
 #include <iostream>
 #include "common.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 /*bool MDD::isConstrained(int curr_id, int next_id, int next_timestep, const std::vector< std::list< std::pair<int, int> > >& cons)  const
 {
 	if (cons.empty())
@@ -61,7 +66,7 @@ bool MDD::buildMDD(ConstraintTable& constraint_table, const SingleAgentSolver* _
 	auto root = new Node(solver->start_location, 0, solver->my_heuristic[solver->start_location]); // Root
 	// generate a heap that can save nodes (and a open_handle)
 	pairing_heap< Node*, compare<Node::compare_node> > open;
-	unordered_set<Node*, Node::NodeHasher, Node::eqnode> allNodes_table;
+	std::unordered_set<Node*, Node::NodeHasher, Node::eqnode> allNodes_table;
 	open.push(root);
 	allNodes_table.insert(root);
 	Node* goal_node = nullptr;
@@ -130,7 +135,7 @@ bool MDD::buildMDD(ConstraintTable& constraint_table, const SingleAgentSolver* _
 		Q.pop_back();
 		for (auto parent : curr->parents)
 		{
-			if (curr == goal_node && parent->location == goal_node->location) 
+			if (curr == goal_node && parent->location == goal_node->location)
 				continue;  // the parent of the goal node should not be at the goal location
 			if (parent->mdd_node == nullptr) // a new node
 			{
@@ -138,8 +143,8 @@ bool MDD::buildMDD(ConstraintTable& constraint_table, const SingleAgentSolver* _
 				levels[parent->timestep].push_back(parent->mdd_node);
 				Q.push_back(parent);
 			}
-			parent->mdd_node->children.push_back(curr->mdd_node); // add forward edge			
-			curr->mdd_node->parents.push_back(parent->mdd_node); // add backward edge	
+			parent->mdd_node->children.push_back(curr->mdd_node); // add forward edge
+			curr->mdd_node->parents.push_back(parent->mdd_node); // add backward edge
 		}
 	}
 	assert(!levels[0].empty());
@@ -211,7 +216,7 @@ bool MDD::buildMDD(const ConstraintTable& ct,
 		if (parent->location == goal_node->location) // the parent of the goal node should not be at the goal location
 			continue;
 		levels[num_of_levels - 2].push_back(parent);
-		parent->children.push_back(goal_node); // add forward edge	
+		parent->children.push_back(goal_node); // add forward edge
 	}
 	for (int t = num_of_levels - 2; t > 0; t--)
 	{
@@ -223,7 +228,7 @@ bool MDD::buildMDD(const ConstraintTable& ct,
 				{
 					levels[t - 1].push_back(parent);
 				}
-				parent->children.push_back(node); // add forward edge	
+				parent->children.push_back(node); // add forward edge
 			}
 		}
 	}
@@ -299,7 +304,7 @@ bool MDD::buildMDD(const ConstraintTable& ct,
 				{
 					levels[t - 1].push_back(*parent);
 				}
-				(*parent)->children.push_back(*it); // add forward edge	
+				(*parent)->children.push_back(*it); // add forward edge
 			}
 		}
 	}
@@ -378,7 +383,7 @@ MDD::MDD(const MDD & cpy) // deep copy
 				}
 			}
 		}
-		
+
 	}
 
   solver = cpy.solver;
@@ -674,3 +679,4 @@ unordered_map<int, MDDNode*> collectMDDlevel(MDD* mdd, int i){
   return loc2mdd;
 }
 
+}

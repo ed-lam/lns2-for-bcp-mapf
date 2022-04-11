@@ -1,5 +1,10 @@
 #include "SIPP.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 void SIPP::updatePath(const LLNode* goal, vector<PathEntry> &path)
 {
     num_collisions = goal->num_of_conflicts;
@@ -174,7 +179,7 @@ pair<Path, int> SIPP::findSuboptimalPath(const HLNode& node, const ConstraintTab
     min_f_val = max(holding_time, max((int)start->getFVal(), lowerbound));
     pushNodeToOpenAndFocal(start);
 
-	while (!open_list.empty()) 
+	while (!open_list.empty())
 	{
 		updateFocalList(); // update FOCAL if min f-val increased
 		SIPPNode* curr = focal_list.top(); focal_list.pop();
@@ -215,7 +220,7 @@ pair<Path, int> SIPP::findSuboptimalPath(const HLNode& node, const ConstraintTab
                     delete next;
 			}
 		}  // end for loop that generates successors
-		   
+
 		// wait at the current location
 		if (curr->high_expansion == curr->high_generation and
             reservation_table.find_safe_interval(interval, curr->location, curr->high_expansion) and
@@ -236,7 +241,7 @@ pair<Path, int> SIPP::findSuboptimalPath(const HLNode& node, const ConstraintTab
                 delete next;
 		}
 	}  // end while loop
-	  
+
 	  // no path found
 	releaseNodes();
 	return {path, min_f_val};
@@ -474,4 +479,6 @@ bool SIPP::dominanceCheck(SIPPNode* new_node)
         }
     }
     return true;
+}
+
 }

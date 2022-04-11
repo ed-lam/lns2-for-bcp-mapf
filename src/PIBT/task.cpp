@@ -8,6 +8,10 @@
 #include "task.h"
 #include "util.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 int Task::cntId = 0;
 
@@ -80,4 +84,6 @@ std::string Task::logStr() {
   for (auto v : G_CLOSE) str += std::to_string(v->getId()) + ",";
   str += "\n";
   return str;
+}
+
 }

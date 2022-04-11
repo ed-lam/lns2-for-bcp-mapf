@@ -3,6 +3,11 @@
 #include "SpaceTimeAStar.h"
 #include "SIPP.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 struct Agent
 {
     int id;
@@ -67,3 +72,5 @@ protected:
 
     void rouletteWheel();
 };
+
+}

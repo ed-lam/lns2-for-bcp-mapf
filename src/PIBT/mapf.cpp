@@ -8,6 +8,11 @@
 #include "mapf.h"
 #include "util.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 MAPF::MAPF(Graph* _G,
            PIBT_Agents _A,
            std::vector<Task*> _T) : Problem(_G, _A, _T)
@@ -89,4 +94,6 @@ std::string MAPF::logStr() {
     str += "size:" + std::to_string(pathsize) + "\n";
   }
   return str;
+}
+
 }

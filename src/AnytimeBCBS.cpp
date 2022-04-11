@@ -1,6 +1,10 @@
 #include "AnytimeBCBS.h"
 #include "CBS.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 void AnytimeBCBS::run()
 {
@@ -169,4 +173,6 @@ void AnytimeBCBS::writeResultToFile(string file_name) const
           iteration_stats.size() << "," << iteration_stats.front().runtime << "," <<  auc << "," <<
           preprocessing_time << "," << getSolverName() << "," << instance.getInstanceName() << endl;
     stats.close();
+}
+
 }

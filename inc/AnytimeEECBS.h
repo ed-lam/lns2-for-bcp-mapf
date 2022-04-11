@@ -1,6 +1,10 @@
 #pragma once
 #include "Instance.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 class AnytimeEECBS
 {
@@ -27,3 +31,5 @@ private:
     double time_limit;
     int screen;
 };
+
+}

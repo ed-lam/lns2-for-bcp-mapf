@@ -7,6 +7,10 @@
 
 #include "grid.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 Grid::Grid(std::mt19937* _MT) : Graph(_MT) {}
 Grid::Grid() {};
@@ -42,4 +46,6 @@ std::string Grid::logStr() {
   str += "[graph] width:" + std::to_string(getW()) + "\n";
   str += "[graph] height:" + std::to_string(getH()) + "\n";
   return str;
+}
+
 }

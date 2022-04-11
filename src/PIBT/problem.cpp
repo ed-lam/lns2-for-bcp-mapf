@@ -9,6 +9,10 @@
 #include "util.h"
 #include <random>
 
+namespace lns
+{
+
+using namespace lns;
 
 Problem::Problem(Graph* _G,
                  PIBT_Agents _A,
@@ -55,4 +59,6 @@ void Problem::assign(Task* tau) {
 
 std::string Problem::logStr() {
   return "[problem] timesteplimit:" + std::to_string(timesteplimit) + "\n";
+}
+
 }

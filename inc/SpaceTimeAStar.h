@@ -1,6 +1,11 @@
 ﻿#pragma once
 #include "SingleAgentSolver.h"
+#include <unordered_set>
 
+namespace lns
+{
+
+using namespace lns;
 
 class AStarNode: public LLNode
 {
@@ -96,3 +101,5 @@ private:
 	void releaseNodes();
 
 };
+
+}

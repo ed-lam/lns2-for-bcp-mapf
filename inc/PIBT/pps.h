@@ -8,6 +8,10 @@
 #pragma once
 #include "solver.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 enum RES { SUCCESS,
            FAIL,
@@ -109,3 +113,5 @@ public:
 
   std::string logStr();
 };
+
+}

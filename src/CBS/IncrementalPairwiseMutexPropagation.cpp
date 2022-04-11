@@ -3,6 +3,11 @@
 #include <iostream>
 #include "ConstraintPropagation.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 using namespace std;
 IPMutexPropagation::IPMutexPropagation(MDD* MDD_0, MDD* MDD_1,
                                        SingleAgentSolver* se_0, SingleAgentSolver* se_1,
@@ -89,4 +94,6 @@ std::pair<con_vec, con_vec> IPMutexPropagation::gen_constraints(){
   // cout << "no solution found";
 
   return {{}, {}};
+}
+
 }

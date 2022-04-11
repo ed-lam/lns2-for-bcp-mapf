@@ -32,6 +32,11 @@
 #pragma once
 #include "grid.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 class SimpleGrid : public Grid {
 protected:
   std::string filename;
@@ -54,3 +59,5 @@ public:
 
   std::string logStr();
 };
+
+}

@@ -12,6 +12,11 @@
 #include "pps.h"
 #include "util.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 int PPS::s_uuid = 0;
 
 PPS::PPS(Problem* _P) : Solver(_P) {
@@ -902,7 +907,7 @@ Nodes PPS::CLOSEST_EMPTY_VERTICLES(PIBT_Agent* c) {
 
   // create occupied lists
   for (auto a : A) occupied.push_back(a->getNode());
-  std::unordered_map<int, VD*> table;
+  unordered_map<int, VD*> table;
   VD* n = new VD { c->getNode(), 0 };
   int id = n->v->getId();
   int d;
@@ -952,4 +957,6 @@ std::string PPS::logStr() {
   str += "[solver] type:Parallel Push & Swap\n";
   str += Solver::logStr();
   return str;
+}
+
 }

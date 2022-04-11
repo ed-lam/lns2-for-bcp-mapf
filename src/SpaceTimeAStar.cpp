@@ -1,5 +1,9 @@
 #include "SpaceTimeAStar.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 void SpaceTimeAStar::updatePath(const LLNode* goal, vector<PathEntry> &path)
 {
@@ -8,7 +12,7 @@ void SpaceTimeAStar::updatePath(const LLNode* goal, vector<PathEntry> &path)
     if (curr->is_goal)
         curr = curr->parent;
 	path.reserve(curr->g_val + 1);
-	while (curr != nullptr) 
+	while (curr != nullptr)
 	{
 		path.emplace_back(curr->location);
 		curr = curr->parent;
@@ -306,7 +310,7 @@ pair<Path, int> SpaceTimeAStar::findSuboptimalPath(const HLNode& node, const Con
 					if (add_to_focal)
 						existing_next->focal_handle = focal_list.push(existing_next);
 					if (update_in_focal)
-						focal_list.update(existing_next->focal_handle);  // should we do update? yes, because number of conflicts may go up or down			
+						focal_list.update(existing_next->focal_handle);  // should we do update? yes, because number of conflicts may go up or down
 				}
 			}
 
@@ -399,7 +403,7 @@ inline void SpaceTimeAStar::pushNode(AStarNode* node)
 	node->in_openlist = true;
 	num_generated++;
 	if (node->getFVal() <= w * min_f_val)
-		node->focal_handle = focal_list.push(node);		
+		node->focal_handle = focal_list.push(node);
 }
 
 
@@ -428,3 +432,4 @@ void SpaceTimeAStar::releaseNodes()
 	allNodes_table.clear();
 }
 
+}

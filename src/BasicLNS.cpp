@@ -1,4 +1,10 @@
 #include "BasicLNS.h"
+
+namespace lns
+{
+
+using namespace lns;
+
 BasicLNS::BasicLNS(const Instance& instance, double time_limit, int neighbor_size, int screen) :
         instance(instance), time_limit(time_limit), neighbor_size(neighbor_size), screen(screen) {}
 
@@ -21,4 +27,6 @@ void BasicLNS::rouletteWheel()
         selected_neighbor++;
         threshold += destroy_weights[selected_neighbor];
     }
+}
+
 }

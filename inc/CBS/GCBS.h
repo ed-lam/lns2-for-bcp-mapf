@@ -2,6 +2,10 @@
 #include "GCBSNode.h"
 #include "SpaceTimeAStar.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 class GCBS
 {
@@ -106,3 +110,5 @@ private:
 
     void printPaths() const;
 };
+
+}

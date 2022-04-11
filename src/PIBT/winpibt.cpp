@@ -10,6 +10,10 @@
 #include <algorithm>
 #include "util.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 winPIBT::winPIBT(Problem* _P, int _w, bool _softmode)
   : Solver(_P), w(_w), softmode(_softmode)
@@ -284,7 +288,7 @@ Nodes winPIBT::getPath(PIBT_Agent* a, Node* _g, int t1, int t2) {
   bool invalid = true;  // success or not
 
   boost::heap::fibonacci_heap<Fib_AN> OPEN;
-  std::unordered_map<std::string,
+  unordered_map<std::string,
                      boost::heap::fibonacci_heap<Fib_AN>::handle_type> SEARCHED;
   std::unordered_set<std::string> CLOSE;  // key
   AN* n = new AN { _s, t1, pathDist(_s, _g), nullptr };
@@ -424,4 +428,6 @@ std::string winPIBT::logStr() {
   str += "[solver] softmode:" + std::to_string(softmode) + "\n";
   str += Solver::logStr();
   return str;
+}
+
 }

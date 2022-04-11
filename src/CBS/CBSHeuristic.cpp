@@ -3,6 +3,10 @@
 #include <queue>
 //#include <ilcplex/ilocplex.h>
 
+namespace lns
+{
+
+using namespace lns;
 
 void CBSHeuristic::updateInadmissibleHeuristics(HLNode& curr)
 {
@@ -417,7 +421,7 @@ bool CBSHeuristic::computeInformedHeuristics(ECBSNode& curr, const vector<int>& 
 			int best_so_far = INT_MAX;
 			rst += DPForConstrainedWMVC(x, 0, 0, G, range, best_so_far);
 		}
-		
+
 		double runtime = (double)(clock() - start_time) / CLOCKS_PER_SEC;
 		if (runtime > time_limit)
 			return -1; // run out of time
@@ -780,7 +784,7 @@ tuple<int, int, int> CBSHeuristic::solve2Agents(int a1, int a2, const ECBSNode& 
 	double runtime = (double)(clock() - start_time) / CLOCKS_PER_SEC;
 	cbs.solve(time_limit - runtime, 0, MAX_COST);
 	num_solve_2agent_problems++;
-	
+
 	// For statistic study!!!
 	if (save_stats)
 	{
@@ -1166,7 +1170,7 @@ int CBSHeuristic::weightedVertexCover(const std::vector<int>& CG)
 						Q.push(k);
 						done[k] = true;
 					}
-				}		
+				}
 				else if (CG[k * num_of_agents + j] > 0)
 				{
 					range[num] = std::max(range[num], CG[k * num_of_agents + j]);
@@ -1252,9 +1256,9 @@ int CBSHeuristic::DPForWMVC(std::vector<int>& x, int i, int sum, const std::vect
 		}
 		return best_so_far;
 	}
-	
+
 	int cols = x.size();
-	
+
 	// find minimum cost for this vertex
 	int min_cost = 0;
 	for (int j = 0; j < i; j++)
@@ -1279,7 +1283,7 @@ int CBSHeuristic::DPForWMVC(std::vector<int>& x, int i, int sum, const std::vect
 	}
 	if (best_cost >= 0)
 	{
-		x[i] = best_cost; 
+		x[i] = best_cost;
 	}
 
 	return best_so_far;
@@ -1523,4 +1527,6 @@ bool CBSHeuristic::SyncMDDs(const MDD &mdd, const MDD& other) // assume mdd.leve
 	}
 	copy.clear();
 	return true;
+}
+
 }

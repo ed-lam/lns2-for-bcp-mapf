@@ -3,6 +3,11 @@
 #include "pibt_agent.h"
 #include "task.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 using PIBT_Agents = std::vector<PIBT_Agent*>;
 // defined in Graph.h
 // using Nodes = std::vector<Node*>;
@@ -51,3 +56,5 @@ public:
 
   virtual std::string logStr();
 };
+
+}

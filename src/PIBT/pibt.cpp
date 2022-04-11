@@ -16,6 +16,10 @@
 #include <random>
 #include "util.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 PIBT::PIBT(Problem* _P) : Solver(_P)
 {
@@ -292,4 +296,6 @@ std::string PIBT::logStr() {
   str += "[solver] type:PIBT\n";
   str += Solver::logStr();
   return str;
+}
+
 }

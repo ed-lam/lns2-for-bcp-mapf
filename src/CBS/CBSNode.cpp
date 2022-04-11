@@ -1,5 +1,9 @@
 #include "CBSNode.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 void HLNode::clear()
 {
@@ -76,4 +80,6 @@ std::ostream& operator<<(std::ostream& os, const HLNode& node)
 		", d = " << node.distance_to_go << " ) with " <<
 		node.getNumNewPaths() << " new paths ";
 	return os;
+}
+
 }

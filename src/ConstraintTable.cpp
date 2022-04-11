@@ -1,5 +1,10 @@
 #include "ConstraintTable.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 int ConstraintTable::getMaxTimestep() const // everything is static after the max timestep
 {
     int rst = max(max(ct_max_timestep, cat_max_timestep), length_min);
@@ -245,7 +250,7 @@ bool ConstraintTable::constrained(size_t loc, int t) const
 		const auto& it = landmarks.find(t);
 		if (it != landmarks.end() && it->second != loc)
 			return true;  // violate the positive vertex constraint
-	}	
+	}
 
 	const auto& it = ct.find(loc);
 	if (it == ct.end())
@@ -362,4 +367,6 @@ int ConstraintTable::getHoldingTime(int location, int earliest_timestep) const
 	}
 
 	return rst;
+}
+
 }

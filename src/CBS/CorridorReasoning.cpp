@@ -4,6 +4,11 @@
 #include "SpaceTimeAStar.h"
 #include "SIPP.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 shared_ptr<Conflict> CorridorReasoning::run(const shared_ptr<Conflict>& conflict,
 	const vector<Path*>& paths, const HLNode& node)
 {
@@ -14,7 +19,7 @@ shared_ptr<Conflict> CorridorReasoning::run(const shared_ptr<Conflict>& conflict
 }
 
 int CorridorReasoning::findCorridor(const shared_ptr<Conflict>& conflict,
-	const vector<Path*>& paths, int endpoints[], int endpoints_time[]) // return the length of the corridor 
+	const vector<Path*>& paths, int endpoints[], int endpoints_time[]) // return the length of the corridor
 {
 	if (paths[conflict->a1]->size() <= 1 || paths[conflict->a2]->size() <= 1)
 		return 0;
@@ -27,23 +32,23 @@ int CorridorReasoning::findCorridor(const shared_ptr<Conflict>& conflict,
 	if (loc1 < 0) // vertex conflcit
 	{
 		if (search_engines[0]->instance.getDegree(loc2) != 2)
-			return 0; // not a corridor 
+			return 0; // not a corridor
 		loc1 = loc2;
 	}
 	else // edge conflict
 	{
 		if (search_engines[0]->instance.getDegree(loc1) != 2 && search_engines[0]->instance.getDegree(loc2) != 2)
-			return 0; // not a corridor 	
+			return 0; // not a corridor
 	}
 
-	endpoints_time[0] = getExitingTime(*paths[conflict->a1], t); ; // the first timestep when agent 1 exits the corridor 
-	endpoints_time[1] = getExitingTime(*paths[conflict->a2], t); ; // the first timestep when agent 2 exits the corridor 
+	endpoints_time[0] = getExitingTime(*paths[conflict->a1], t); ; // the first timestep when agent 1 exits the corridor
+	endpoints_time[1] = getExitingTime(*paths[conflict->a2], t); ; // the first timestep when agent 2 exits the corridor
 	endpoints[0] = paths[conflict->a1]->at(endpoints_time[0]).location; // the exit location for agent 1
 	endpoints[1] = paths[conflict->a2]->at(endpoints_time[1]).location; // the exit location for agent 2
 	if (endpoints[0] == endpoints[1]) // agents exit the corridor in the same direction
 		return 0;
 	// count the distance between the two endpoints, and
-	// check whether the corridor between the two exit locations traverse the conflict location, 
+	// check whether the corridor between the two exit locations traverse the conflict location,
 	// which indicates whether the two agents come in different directions
 	int prev = endpoints[0];
 	int curr = paths[conflict->a1]->at(endpoints_time[0] - 1).location;
@@ -373,7 +378,7 @@ int CorridorReasoning::getBypassLengthBySIPP(int start, int end, pair<int, int> 
 	pairing_heap< SIPPNode*, compare<SIPPNode::compare_node> > open_list;
 	// boost::heap::pairing_heap< AStarNode*, boost::heap::compare<LLNode::compare_node> >::handle_type open_handle;
 	unordered_set<SIPPNode*, SIPPNode::NodeHasher, SIPPNode::eqnode> nodes;
-	
+
 	Interval interval = reservation_table.get_first_safe_interval(start);
 	assert(get<0>(interval) == 0);
 	auto root = new SIPPNode(start, 0, instance.getManhattanDistance(start, end), nullptr, 0, interval);
@@ -448,4 +453,6 @@ bool CorridorReasoning::blocked(const Path& path, const Constraint& constraint)
 			return true;
 	}
 	return false;
+}
+
 }

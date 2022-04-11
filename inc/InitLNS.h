@@ -1,6 +1,11 @@
 #pragma once
 #include "BasicLNS.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 enum init_destroy_heuristic { TARGET_BASED, COLLISION_BASED, RANDOM_BASED, INIT_COUNT };
 
 class InitLNS : public BasicLNS
@@ -55,3 +60,5 @@ private:
 
     bool validatePathTable() const;
 };
+
+}

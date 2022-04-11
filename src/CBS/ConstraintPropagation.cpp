@@ -6,6 +6,11 @@
 #include <utility>
 #include <iostream>
 
+namespace lns
+{
+
+using namespace lns;
+
 // is a mutex edge mutex.
 bool is_edge_mutex(edge_pair ep){
   return ep.first.second != nullptr;
@@ -553,7 +558,7 @@ std::pair<std::vector<Constraint>, std::vector<Constraint>> ConstraintPropagatio
 
   for (auto& it:cons_0){
     cons_vec_0.push_back({0, it->location, -1, it->level, constraint_type::VERTEX});
-    
+
   }
   for (auto& it:cons_1){
     cons_vec_1.push_back({1, it->location, -1, it->level, constraint_type::VERTEX});
@@ -562,4 +567,6 @@ std::pair<std::vector<Constraint>, std::vector<Constraint>> ConstraintPropagatio
     return {cons_vec_1, cons_vec_0};
   }
   return {cons_vec_0, cons_vec_1};
+}
+
 }

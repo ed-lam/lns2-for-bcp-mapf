@@ -3,6 +3,10 @@
 #include <vector>
 #include "node.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 class Task {
 private:
@@ -39,3 +43,5 @@ public:
 
   std::string logStr();
 };
+
+}

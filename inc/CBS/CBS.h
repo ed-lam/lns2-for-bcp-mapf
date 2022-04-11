@@ -4,6 +4,11 @@
 #include "CorridorReasoning.h"
 #include "MutexReasoning.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 enum high_level_solver_type { ASTAR, ASTAREPS, NEW, EES };
 
 class CBS
@@ -70,7 +75,7 @@ public:
 	void setNodeLimit(int n) { node_limit = n; }
 
 	////////////////////////////////////////////////////////////////////////////////////////////
-	// Runs the algorithm until the problem is solved or time is exhausted 
+	// Runs the algorithm until the problem is solved or time is exhausted
 	bool solve(double time_limit, int cost_lowerbound = 0, int cost_upperbound = MAX_COST);
 
 	int getLowerBound() const { return cost_lowerbound; }
@@ -107,7 +112,7 @@ protected:
 	conflict_selection conflict_seletion_rule;
 	node_selection node_selection_fule;
 
-	MDDTable mdd_helper;	
+	MDDTable mdd_helper;
 	RectangleReasoning rectangle_helper;
 	CorridorReasoning corridor_helper;
 	MutexReasoning mutex_helper;
@@ -118,7 +123,7 @@ protected:
 	string getSolverName() const;
 
 	int screen;
-	
+
 	double time_limit;
 	double suboptimality = 1.0;
 	int cost_lowerbound = 0;
@@ -182,3 +187,5 @@ private: // CBS only, cannot be used by ECBS
 
 	void printPaths() const;
 };
+
+}

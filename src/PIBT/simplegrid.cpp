@@ -10,6 +10,11 @@
 #include "util.h"
 #include "simplegrid.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 SimpleGrid::SimpleGrid(std::string _filename)
   : filename(_filename)
 {
@@ -215,4 +220,6 @@ std::string SimpleGrid::logStr() {
   std::string str = Grid::logStr();
   str += "[graph] filename:" + filename + "\n";
   return str;
+}
+
 }

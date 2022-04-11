@@ -1,5 +1,9 @@
 #include "ECBS.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 bool ECBS::solve(double time_limit, int _cost_lowerbound)
 {
@@ -804,4 +808,6 @@ ECBS::~ECBS()
 {
     releaseNodes();
     mdd_helper.clear();
+}
+
 }

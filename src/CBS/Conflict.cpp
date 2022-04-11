@@ -2,6 +2,10 @@
 #include "RectangleReasoning.h"
 #include "MDD.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 std::ostream& operator<<(std::ostream& os, const Constraint& constraint)
 {
@@ -80,10 +84,10 @@ std::ostream& operator<<(std::ostream& os, const Conflict& conflict)
     }
 	os << " conflict:  " << conflict.a1 << " with ";
 	for (auto con : conflict.constraint1)
-		os << con << ",";		
+		os << con << ",";
 	os << " and " << conflict.a2 << " with ";
 	for (auto con : conflict.constraint2)
-		os << con << ",";		
+		os << con << ",";
 	return os;
 }
 
@@ -104,3 +108,4 @@ bool operator < (const Conflict& conflict1, const Conflict& conflict2) // return
 	return conflict1.priority > conflict2.priority;
 }
 
+}

@@ -2,6 +2,10 @@
 #include "CBS.h"
 #include "ECBSNode.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 class ECBS : public CBS
 {
@@ -11,7 +15,7 @@ public:
          const PathTable* path_table = nullptr) : CBS(search_engines, screen, path_table) {}
     ~ECBS();
 	////////////////////////////////////////////////////////////////////////////////////////////
-	// Runs the algorithm until the problem is solved or time is exhausted 
+	// Runs the algorithm until the problem is solved or time is exhausted
 	bool solve(double time_limit, int cost_lowerbound = 0);
 
 	ECBSNode* getGoalNode() { return goal_node; }
@@ -46,3 +50,5 @@ private:
 	//update information
 	void printPaths() const;
 };
+
+}

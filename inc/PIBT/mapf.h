@@ -1,6 +1,10 @@
 #pragma once
 #include "problem.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 class MAPF : public Problem {
 private:
@@ -21,3 +25,5 @@ public:
 
   std::string logStr();
 };
+
+}

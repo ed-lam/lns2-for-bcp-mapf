@@ -2,7 +2,10 @@
 
 #include "solver.h"
 
+namespace lns
+{
 
+using namespace lns;
 
 class PIBT : public Solver {
 protected:
@@ -45,3 +48,5 @@ public:
 
   virtual std::string logStr();
 };
+
+}

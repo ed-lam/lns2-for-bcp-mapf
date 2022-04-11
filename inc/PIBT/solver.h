@@ -9,6 +9,11 @@
 #include <unordered_set>
 #include <boost/heap/fibonacci_heap.hpp>
 
+namespace lns
+{
+
+using namespace lns;
+
 typedef std::chrono::duration<float> fsec;
 
 
@@ -55,3 +60,5 @@ public:
 
   virtual std::string logStr();
 };
+
+}

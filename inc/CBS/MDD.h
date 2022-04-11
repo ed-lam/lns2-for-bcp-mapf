@@ -1,14 +1,19 @@
 #pragma once
 #include "SingleAgentSolver.h"
 #include "ECBSNode.h"
+#include <unordered_set>
 
+namespace lns
+{
+
+using namespace lns;
 
 class MDDNode
 {
 public:
 	MDDNode(int currloc, MDDNode* parent)
 	{
-		location = currloc; 
+		location = currloc;
 		if(parent == nullptr)
 			level = 0;
 		else
@@ -113,7 +118,7 @@ public:
 	MDDTable(const vector<ConstraintTable>& initial_constraints,
 						const vector<SingleAgentSolver*>& search_engines):
 		initial_constraints(initial_constraints), search_engines(search_engines) {}
-	
+
 	void init(int number_of_agents)
 	{
 		lookupTable.resize(number_of_agents);
@@ -127,7 +132,7 @@ public:
 private:
 	int max_num_of_mdds = 10000; // per agent
 
-	vector<unordered_map<ConstraintsHasher, MDD*, 
+	vector<unordered_map<ConstraintsHasher, MDD*,
 		ConstraintsHasher::Hasher, ConstraintsHasher::EqNode> >lookupTable;
 
 	const vector<ConstraintTable>& initial_constraints;
@@ -136,3 +141,5 @@ private:
 };
 
 unordered_map<int, MDDNode*> collectMDDlevel(MDD* mdd, int i);
+
+}

@@ -9,6 +9,11 @@
 #include "pibt_agent.h"
 #include "util.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 int PIBT_Agent::cntId = 0;
 
 PIBT_Agent::PIBT_Agent() : id(cntId) {
@@ -94,4 +99,6 @@ std::string PIBT_Agent::logStr() {
     str += strPath + "\n";
     str += strGoal + "\n";
     return str;
+}
+
 }

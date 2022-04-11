@@ -7,6 +7,11 @@
 #include <iostream>
 #include <math.h>
 
+namespace lns
+{
+
+using namespace lns;
+
 class Vec2f {
 public:
   float x;
@@ -124,4 +129,6 @@ inline float Vec2f::length() const {
 inline std::ostream& operator<<(std::ostream& os, const Vec2f& vec) {
   os << "(" << vec.x << ", " << vec.y << ")";
   return os;
+}
+
 }

@@ -1,16 +1,21 @@
 #include "ReservationTable.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 
 /*int ResevationTable::get_holding_time(int location)
-{ 
+{
 	auto it = constraints.find(location);
 	if (it != constraints.end())
 	{
 		for (auto constraint : it->second)
 			insert_constraint(location, constraint.first, constraint.second);
 	}
-	
-	if (RT.find(location) == RT.end()) 
+
+	if (RT.find(location) == RT.end())
 	{
 		return 0;
 	}
@@ -34,7 +39,7 @@ void ReservationTable::insert2SIT(int location, int t_min, int t_max)
     for (auto it = sit[location].begin(); it != sit[location].end();)
     {
         if (t_min >= get<1>(*it))
-			++it; 
+			++it;
         else if (t_max <= get<0>(*it))
             break;
         else if (get<0>(*it) < t_min && get<1>(*it) <= t_max)
@@ -396,4 +401,6 @@ int ReservationTable::get_earliest_no_collision_arrival_time(int from, int to, c
             return t;
     }
     return -1;
+}
+
 }

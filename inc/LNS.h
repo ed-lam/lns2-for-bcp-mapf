@@ -10,6 +10,12 @@
 #include "pibt.h"
 #include "pps.h"
 #include "winpibt.h"
+#include <unordered_set>
+
+namespace lns
+{
+
+using namespace lns;
 
 enum destroy_heuristic { RANDOMAGENTS, RANDOMWALK, INTERSECTION, DESTORY_COUNT };
 
@@ -80,3 +86,5 @@ private:
     void randomWalk(int agent_id, int start_location, int start_timestep,
                     set<int>& neighbor, int neighbor_size, int upperbound);
 };
+
+}

@@ -2,6 +2,11 @@
 #include "ECBS.h"
 #include <queue>
 
+namespace lns
+{
+
+using namespace lns;
+
 LNS::LNS(const Instance& instance, double time_limit, const string & init_algo_name, const string & replan_algo_name,
          const string & destory_name, int neighbor_size, int num_of_iterations, bool use_init_lns,
          const string & init_destory_name, bool use_sipp, int screen, PIBTPPS_option pipp_option) :
@@ -609,7 +614,7 @@ bool LNS::generateNeighborByRandomWalk()
     int a = findMostDelayedAgent();
     if (a < 0)
         return false;
-    
+
     set<int> neighbors_set;
     neighbors_set.insert(a);
     randomWalk(a, agents[a].path[0].location, 0, neighbors_set, neighbor_size, (int) agents[a].path.size() - 1);
@@ -899,4 +904,6 @@ void LNS::writePathsToFile(const string & file_name) const
         output << endl;
     }
     output.close();
+}
+
 }

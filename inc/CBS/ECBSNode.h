@@ -1,6 +1,10 @@
 #pragma once
 #include "CBSNode.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 class ECBSNode : public HLNode
 {
@@ -74,7 +78,7 @@ public:
 
 	int sum_of_costs = 0;  // sum of costs of the paths
 	ECBSNode* parent;
-	list< pair< int, pair<Path, int> > > paths; // new paths <agent id, <path, min f>>	
+	list< pair< int, pair<Path, int> > > paths; // new paths <agent id, <path, min f>>
 	inline int getFHatVal() const { return sum_of_costs + cost_to_go; }
 	inline int getNumNewPaths() const { return (int) paths.size(); }
 	inline string getName() const { return "ECBS Node"; }
@@ -86,3 +90,5 @@ public:
 		return rst;
 	}
 };
+
+}

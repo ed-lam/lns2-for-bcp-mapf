@@ -12,6 +12,11 @@
 #include "util.h"
 #include <boost/heap/fibonacci_heap.hpp>
 
+namespace lns
+{
+
+using namespace lns;
+
 Graph::Graph() {
   std::random_device seed_gen;
   MT = new std::mt19937(seed_gen());
@@ -102,7 +107,7 @@ Nodes Graph::getPath(Node* _s, Node* _g,
 
   // prepare node open hashtable
   boost::heap::fibonacci_heap<Fib_AN> OPEN;
-  std::unordered_map<int, boost::heap::fibonacci_heap<Fib_AN>::handle_type> SEARCHED;
+  unordered_map<int, boost::heap::fibonacci_heap<Fib_AN>::handle_type> SEARCHED;
   std::unordered_set<int> CLOSE;
   AN* n = new AN { _s, 0, dist(_s, _g), nullptr };
   auto handle = OPEN.push(Fib_AN(n));
@@ -257,4 +262,6 @@ Paths Graph::getRandomStartGoal(int num) {
   }
 
   return points;
+}
+
 }

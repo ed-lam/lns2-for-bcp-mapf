@@ -2,6 +2,11 @@
 #include "common.h"
 #include "Conflict.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 enum node_selection { NODE_RANDOM, NODE_H, NODE_DEPTH, NODE_CONFLICTS, NODE_CONFLICTPAIRS, NODE_MVC };
 
 
@@ -67,9 +72,9 @@ class CBSNode: public HLNode
 {
 public:
 	// the following is used to comapre nodes in the CLEANUP list
-	struct compare_node_by_f 
+	struct compare_node_by_f
 	{
-		bool operator()(const CBSNode* n1, const CBSNode* n2) const 
+		bool operator()(const CBSNode* n1, const CBSNode* n2) const
 		{
 			if (n1->g_val + n1->h_val == n2->g_val + n2->h_val)
 			{
@@ -92,7 +97,7 @@ public:
 					{
 						return n1->distance_to_go >= n2->distance_to_go;
 					}
-					return n1->g_val + n1->cost_to_go >= n2->g_val + n2->cost_to_go;	
+					return n1->g_val + n1->cost_to_go >= n2->g_val + n2->cost_to_go;
 				}
 				return n1->h_val >= n2->h_val;
 			}
@@ -101,9 +106,9 @@ public:
 	};  // used by CLEANUP to compare nodes by f_val (top of the heap has min f_val)
 
 	// the following is used to comapre nodes in the FOCAL list
-	struct compare_node_by_d 
+	struct compare_node_by_d
 	{
-		bool operator()(const CBSNode* n1, const CBSNode* n2) const 
+		bool operator()(const CBSNode* n1, const CBSNode* n2) const
 		{
 			if (n1->distance_to_go == n2->distance_to_go)
 			{
@@ -186,7 +191,7 @@ struct ConstraintsHasher // Hash a CT node by constraints on one agent
 		{
 			if(c1.a != c2.a)
 				return false;
-				
+
 			std::set<Constraint> cons1, cons2;
 			auto curr = c1.n;
 			while (curr->parent != nullptr)
@@ -245,3 +250,5 @@ struct ConstraintsHasher // Hash a CT node by constraints on one agent
 		}
 	};
 };
+
+}

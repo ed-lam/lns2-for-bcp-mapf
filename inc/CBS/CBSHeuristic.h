@@ -3,10 +3,14 @@
 #include "RectangleReasoning.h"
 #include "CorridorReasoning.h"
 
+namespace lns
+{
+
+using namespace lns;
 
 enum heuristics_type { ZERO, CG, DG, WDG, GLOBAL, PATH, LOCAL, CONFLICT, STRATEGY_COUNT }; //  GREEDY,
 
-struct HTableEntry // look-up table entry 
+struct HTableEntry // look-up table entry
 {
 	int a1{};
 	int a2{};
@@ -145,7 +149,7 @@ public:
 	uint64_t num_memoization = 0; // number of times when memeorization helps
 
 	 //stats
-	list<tuple<int, int, const HLNode*, uint64_t, int> > sub_instances; 	// <agent 1, agent 2, node, number of expanded CT nodes, h value> 
+	list<tuple<int, int, const HLNode*, uint64_t, int> > sub_instances; 	// <agent 1, agent 2, node, number of expanded CT nodes, h value>
 
 
 	CBSHeuristic(int num_of_agents,
@@ -154,7 +158,7 @@ public:
 							const vector<ConstraintTable>& initial_constraints,
 							MDDTable& mdd_helper) : num_of_agents(num_of_agents),
 		paths(paths), search_engines(search_engines), initial_constraints(initial_constraints), mdd_helper(mdd_helper) {}
-	
+
 	void init()
 	{
 		if (type == heuristics_type::DG || type == heuristics_type::WDG)
@@ -251,6 +255,4 @@ private:
 	int DPForConstrainedWMVC(vector<bool>& x, int i, int sum, const vector<int>& CG, const vector<int>& range, int& best_so_far);
 };
 
-
-
-
+}

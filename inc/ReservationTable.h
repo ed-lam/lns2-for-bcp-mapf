@@ -2,6 +2,11 @@
 #pragma once
 #include "ConstraintTable.h"
 
+namespace lns
+{
+
+using namespace lns;
+
 typedef tuple<int, int, bool> Interval; // [t_min, t_max), has collision
 
 class ReservationTable
@@ -29,3 +34,5 @@ private:
     int get_earliest_no_collision_arrival_time(int from, int to, const Interval& interval,
                                                int lower_bound, int upper_bound) const;
 };
+
+}
