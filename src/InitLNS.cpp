@@ -911,4 +911,20 @@ bool InitLNS::validatePathTable() const
     return true;
 }
 
+void InitLNS::reset()
+{// agents remain the same
+    num_of_colliding_pairs = 0;
+    path_table.reset();
+    collision_graph.clear();
+    collision_graph.resize(agents.size());
+    goal_table.resize(instance.map_size, -1);
+    num_of_failures = 0;
+    iteration_stats.clear();
+    runtime = 0;
+    average_group_size = -1;
+    sum_of_costs = 0;
+    if(ALNS)
+        destroy_weights.assign(INIT_COUNT, 1);
+}
+
 }

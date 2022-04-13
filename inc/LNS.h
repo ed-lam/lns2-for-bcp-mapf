@@ -50,6 +50,8 @@ public:
     void writePathsToFile(const string & file_name) const;
     string getSolverName() const override { return "LNS(" + init_algo_name + ";" + replan_algo_name + ")"; }
 
+    void reset();
+
     auto& get_path_table() { return path_table; }
 private:
     InitLNS* init_lns = nullptr;

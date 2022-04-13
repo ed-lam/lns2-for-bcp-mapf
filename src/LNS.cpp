@@ -917,4 +917,23 @@ void LNS::writePathsToFile(const string & file_name) const
     output.close();
 }
 
+void LNS::reset()
+{// agents, preprocessing_time, sum_of_distances, intersections remain the same
+    initial_solution_runtime = 0;
+    initial_sum_of_costs = -1;
+    sum_of_costs_lowerbound = -1;
+    restart_times = 0;
+    if(init_lns != nullptr)
+        init_lns->reset();
+    path_table.reset();
+    tabu_list.clear();
+    num_of_failures = 0;
+    iteration_stats.clear();
+    runtime = 0;
+    average_group_size = -1;
+    sum_of_costs = 0;
+    if (ALNS)
+        destroy_weights.assign(DESTORY_COUNT, 1);
+}
+
 }

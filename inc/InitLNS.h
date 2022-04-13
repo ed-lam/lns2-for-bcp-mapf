@@ -28,6 +28,8 @@ public:
     void printResult();
     void clear(); // delete useless data to save memory
 
+    void reset();
+
 private:
     string replan_algo_name;
     init_destroy_heuristic init_destroy_strategy = COLLISION_BASED;
