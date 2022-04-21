@@ -56,7 +56,7 @@ bool InitLNS::run()
              << "remaining time = " << time_limit - runtime << endl;
     if (runtime >= time_limit and !succ)
     {
-        printResult();
+        // printResult();
         return false;
     }
 
@@ -185,7 +185,7 @@ bool InitLNS::run()
                                      0, num_of_colliding_pairs);
     }
 
-    printResult();
+    // printResult();
     return (num_of_colliding_pairs == 0);
 }
 bool InitLNS::runGCBS()

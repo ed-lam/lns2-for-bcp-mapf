@@ -102,8 +102,8 @@ bool LNS::run()
     }
     else
     {
-        cout << "Failed to find an initial solution in "
-             << runtime << " seconds after  " << restart_times << " restarts" << endl;
+        // cout << "Failed to find an initial solution in "
+        //      << runtime << " seconds after  " << restart_times << " restarts" << endl;
         return false; // terminate because no initial solution is found
     }
 
