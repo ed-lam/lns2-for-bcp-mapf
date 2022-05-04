@@ -44,6 +44,7 @@ public:
     }
     bool getInitialSolution();
     bool run();
+    bool run(const int lower_bound);
     void validateSolution() const;
     void writeIterStatsToFile(const string & file_name) const;
     void writeResultToFile(const string & file_name) const;

@@ -48,6 +48,13 @@ LNS::LNS(const Instance& instance, double time_limit, const string & init_algo_n
 
 bool LNS::run()
 {
+    std::abort();
+}
+
+bool LNS::run(const int lower_bound)
+{
+    // cout << "Node lower bound " << lower_bound << '\n';
+
     // only for statistic analysis, and thus is not included in runtime
     sum_of_distances = 0;
     for (const auto & agent : agents)
@@ -91,6 +98,7 @@ bool LNS::run()
         }
     }
 
+    int last_sum_of_costs = std::numeric_limits<int>::max();
     iteration_stats.emplace_back(neighbor.agents.size(),
                                  initial_sum_of_costs, initial_solution_runtime, init_algo_name);
     runtime = initial_solution_runtime;
@@ -99,6 +107,12 @@ bool LNS::run()
         if (screen >= 1)
             cout << "Initial solution cost = " << initial_sum_of_costs << ", "
                  << "runtime = " << initial_solution_runtime << endl;
+
+        if (initial_sum_of_costs < last_sum_of_costs)
+        {
+            last_sum_of_costs = initial_sum_of_costs;
+            // cout << "NEW SOLUTION COST " << last_sum_of_costs << '\n';
+        }
     }
     else
     {
@@ -107,7 +121,7 @@ bool LNS::run()
         return false; // terminate because no initial solution is found
     }
 
-    while (runtime < time_limit && iteration_stats.size() <= num_of_iterations)
+    while (runtime < time_limit && iteration_stats.size() <= num_of_iterations && last_sum_of_costs > lower_bound)
     {
         runtime =((fsec)(Time::now() - start_time)).count();
         if(screen >= 1)
@@ -182,6 +196,12 @@ bool LNS::run()
                  << "solution cost = " << sum_of_costs << ", "
                  << "remaining time = " << time_limit - runtime << endl;
         iteration_stats.emplace_back(neighbor.agents.size(), sum_of_costs, runtime, replan_algo_name);
+
+        if (sum_of_costs < last_sum_of_costs)
+        {
+            last_sum_of_costs = sum_of_costs;
+            // cout << "NEW SOLUTION COST " << last_sum_of_costs << '\n';
+        }
     }
 
 
