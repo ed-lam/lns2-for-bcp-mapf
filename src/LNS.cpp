@@ -236,12 +236,12 @@ bool LNS::getInitialSolution()
         succ = runEECBS();
     else if (init_algo_name == "PP")
         succ = runPP();
-    else if (init_algo_name == "PIBT")
-        succ = runPIBT();
-    else if (init_algo_name == "PPS")
-        succ = runPPS();
-    else if (init_algo_name == "winPIBT")
-        succ = runWinPIBT();
+    // else if (init_algo_name == "PIBT")
+    //     succ = runPIBT();
+    // else if (init_algo_name == "PPS")
+    //     succ = runPPS();
+    // else if (init_algo_name == "winPIBT")
+    //     succ = runWinPIBT();
     else if (init_algo_name == "CBS")
         succ = runCBS();
     else if (init_algo_name == "INJECTED")
@@ -451,54 +451,54 @@ bool LNS::runPP()
         return false;
     }
 }
-bool LNS::runPPS(){
-    auto shuffled_agents = neighbor.agents;
-    std::shuffle(shuffled_agents.begin(), shuffled_agents.end(), rng);
-
-    MAPF P = preparePIBTProblem(shuffled_agents);
-    P.setTimestepLimit(pipp_option.timestepLimit);
-
-    // seed for solver
-    auto* MT_S = new std::mt19937(0);
-    PPS solver(&P,MT_S);
-    solver.setTimeLimit(time_limit);
-//    solver.WarshallFloyd();
-    bool result = solver.solve();
-    if (result)
-        updatePIBTResult(P.getA(),shuffled_agents);
-    return result;
-}
-bool LNS::runPIBT(){
-    auto shuffled_agents = neighbor.agents;
-     std::shuffle(shuffled_agents.begin(), shuffled_agents.end(), rng);
-
-    MAPF P = preparePIBTProblem(shuffled_agents);
-
-    // seed for solver
-    auto MT_S = new std::mt19937(0);
-    PIBT solver(&P,MT_S);
-    solver.setTimeLimit(time_limit);
-    bool result = solver.solve();
-    if (result)
-        updatePIBTResult(P.getA(),shuffled_agents);
-    return result;
-}
-bool LNS::runWinPIBT(){
-    auto shuffled_agents = neighbor.agents;
-    std::shuffle(shuffled_agents.begin(), shuffled_agents.end(), rng);
-
-    MAPF P = preparePIBTProblem(shuffled_agents);
-    P.setTimestepLimit(pipp_option.timestepLimit);
-
-    // seed for solver
-    auto MT_S = new std::mt19937(0);
-    winPIBT solver(&P,pipp_option.windowSize,pipp_option.winPIBTSoft,MT_S);
-    solver.setTimeLimit(time_limit);
-    bool result = solver.solve();
-    if (result)
-        updatePIBTResult(P.getA(),shuffled_agents);
-    return result;
-}
+// bool LNS::runPPS(){
+//     auto shuffled_agents = neighbor.agents;
+//     std::shuffle(shuffled_agents.begin(), shuffled_agents.end(), rng);
+//
+//     MAPF P = preparePIBTProblem(shuffled_agents);
+//     P.setTimestepLimit(pipp_option.timestepLimit);
+//
+//     // seed for solver
+//     auto* MT_S = new std::mt19937(0);
+//     PPS solver(&P,MT_S);
+//     solver.setTimeLimit(time_limit);
+// //    solver.WarshallFloyd();
+//     bool result = solver.solve();
+//     if (result)
+//         updatePIBTResult(P.getA(),shuffled_agents);
+//     return result;
+// }
+// bool LNS::runPIBT(){
+//     auto shuffled_agents = neighbor.agents;
+//      std::shuffle(shuffled_agents.begin(), shuffled_agents.end(), rng);
+//
+//     MAPF P = preparePIBTProblem(shuffled_agents);
+//
+//     // seed for solver
+//     auto MT_S = new std::mt19937(0);
+//     PIBT solver(&P,MT_S);
+//     solver.setTimeLimit(time_limit);
+//     bool result = solver.solve();
+//     if (result)
+//         updatePIBTResult(P.getA(),shuffled_agents);
+//     return result;
+// }
+// bool LNS::runWinPIBT(){
+//     auto shuffled_agents = neighbor.agents;
+//     std::shuffle(shuffled_agents.begin(), shuffled_agents.end(), rng);
+//
+//     MAPF P = preparePIBTProblem(shuffled_agents);
+//     P.setTimestepLimit(pipp_option.timestepLimit);
+//
+//     // seed for solver
+//     auto MT_S = new std::mt19937(0);
+//     winPIBT solver(&P,pipp_option.windowSize,pipp_option.winPIBTSoft,MT_S);
+//     solver.setTimeLimit(time_limit);
+//     bool result = solver.solve();
+//     if (result)
+//         updatePIBTResult(P.getA(),shuffled_agents);
+//     return result;
+// }
 
 MAPF LNS::preparePIBTProblem(vector<int>& shuffled_agents){
 

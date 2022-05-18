@@ -7,9 +7,9 @@
 #include "pibt_agent.h"
 #include "problem.h"
 #include "mapf.h"
-#include "pibt.h"
-#include "pps.h"
-#include "winpibt.h"
+// #include "pibt.h"
+// #include "pps.h"
+// #include "winpibt.h"
 #include <unordered_set>
 
 namespace lns
@@ -74,9 +74,9 @@ private:
     bool runCBS();
     bool runInjected();
     bool runPP();
-    bool runPIBT();
-    bool runPPS();
-    bool runWinPIBT();
+    // bool runPIBT();
+    // bool runPPS();
+    // bool runWinPIBT();
 
 
     MAPF preparePIBTProblem(vector<int>& shuffled_agents);
