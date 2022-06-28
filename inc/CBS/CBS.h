@@ -1,8 +1,8 @@
 #pragma once
-#include "CBSHeuristic.h"
-#include "RectangleReasoning.h"
-#include "CorridorReasoning.h"
-#include "MutexReasoning.h"
+#include "lns2/inc/CBS/CBSHeuristic.h"
+#include "lns2/inc/CBS/RectangleReasoning.h"
+#include "lns2/inc/CBS/CorridorReasoning.h"
+#include "lns2/inc/CBS/MutexReasoning.h"
 
 namespace lns
 {

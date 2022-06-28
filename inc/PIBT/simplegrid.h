@@ -30,7 +30,7 @@
 
 
 #pragma once
-#include "grid.h"
+#include "lns2/inc/PIBT/grid.h"
 
 namespace lns
 {

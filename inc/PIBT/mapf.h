@@ -1,5 +1,5 @@
 #pragma once
-#include "problem.h"
+#include "lns2/inc/PIBT/problem.h"
 
 namespace lns
 {

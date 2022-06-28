@@ -1,4 +1,4 @@
-#include "SpaceTimeAStar.h"
+#include "lns2/inc/SpaceTimeAStar.h"
 
 namespace lns
 {

@@ -1,5 +1,5 @@
-#include "SingleAgentSolver.h"
-#include "SpaceTimeAStar.h"
+#include "lns2/inc/SingleAgentSolver.h"
+#include "lns2/inc/SpaceTimeAStar.h"
 
 namespace lns
 {

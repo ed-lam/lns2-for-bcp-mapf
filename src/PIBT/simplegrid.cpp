@@ -7,8 +7,8 @@
 
 #include <fstream>
 #include <regex>
-#include "util.h"
-#include "simplegrid.h"
+#include "lns2/inc/PIBT/util.h"
+#include "lns2/inc/PIBT/simplegrid.h"
 
 namespace lns
 {

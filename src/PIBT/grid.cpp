@@ -5,7 +5,7 @@
  * Created by: Keisuke Okumura <okumura.k@coord.c.titech.ac.jp>
  */
 
-#include "grid.h"
+#include "lns2/inc/PIBT/grid.h"
 
 namespace lns
 {

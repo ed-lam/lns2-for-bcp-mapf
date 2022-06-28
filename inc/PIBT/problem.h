@@ -1,7 +1,7 @@
 #pragma once
-#include "graph.h"
-#include "pibt_agent.h"
-#include "task.h"
+#include "lns2/inc/PIBT/graph.h"
+#include "lns2/inc/PIBT/pibt_agent.h"
+#include "lns2/inc/PIBT/task.h"
 
 namespace lns
 {

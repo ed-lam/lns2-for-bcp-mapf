@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <deque>
 #include <stack>
-#include "ConstraintPropagation.h"
+#include "lns2/inc/CBS/ConstraintPropagation.h"
 
 #include <utility>
 #include <iostream>

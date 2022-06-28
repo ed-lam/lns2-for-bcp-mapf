@@ -1,8 +1,8 @@
-#include "GCBS.h"
+#include "lns2/inc/CBS/GCBS.h"
 #include <algorithm>    // std::shuffle
 #include <random>      // std::default_random_engine
 #include <chrono>       // std::chrono::system_clock
-#include "SpaceTimeAStar.h"
+#include "lns2/inc/SpaceTimeAStar.h"
 
 namespace lns
 {

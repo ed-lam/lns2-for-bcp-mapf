@@ -1,7 +1,7 @@
 #pragma once
-#include "MDD.h"
-#include "RectangleReasoning.h"
-#include "CorridorReasoning.h"
+#include "lns2/inc/CBS/MDD.h"
+#include "lns2/inc/CBS/RectangleReasoning.h"
+#include "lns2/inc/CBS/CorridorReasoning.h"
 
 namespace lns
 {

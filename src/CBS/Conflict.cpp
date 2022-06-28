@@ -1,6 +1,6 @@
-#include "Conflict.h"
-#include "RectangleReasoning.h"
-#include "MDD.h"
+#include "lns2/inc/CBS/Conflict.h"
+#include "lns2/inc/CBS/RectangleReasoning.h"
+#include "lns2/inc/CBS/MDD.h"
 
 namespace lns
 {

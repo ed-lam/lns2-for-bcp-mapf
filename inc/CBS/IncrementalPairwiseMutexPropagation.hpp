@@ -1,8 +1,8 @@
 #ifndef IPMP_H
 #define IPMP_H
 
-#include "MDD.h"
-#include "SingleAgentSolver.h"
+#include "lns2/inc/CBS/MDD.h"
+#include "lns2/inc/SingleAgentSolver.h"
 
 namespace lns
 {

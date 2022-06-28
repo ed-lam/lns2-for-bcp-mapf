@@ -1,7 +1,7 @@
 #pragma once
-#include "common.h"
-#include "CBSNode.h"
-#include "PathTable.h"
+#include "lns2/inc/common.h"
+#include "lns2/inc/CBS/CBSNode.h"
+#include "lns2/inc/PathTable.h"
 
 namespace lns
 {

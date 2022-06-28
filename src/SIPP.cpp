@@ -1,4 +1,4 @@
-#include "SIPP.h"
+#include "lns2/inc/SIPP.h"
 
 namespace lns
 {

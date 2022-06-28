@@ -1,4 +1,4 @@
-#include "PBS.h"
+#include "lns2/inc/CBS/PBS.h"
 
 namespace lns
 {

@@ -6,10 +6,10 @@
  */
 
 
-#include "graph.h"
+#include "lns2/inc/PIBT/graph.h"
 #include <random>
 #include <unordered_set>
-#include "util.h"
+#include "lns2/inc/PIBT/util.h"
 #include <boost/heap/fibonacci_heap.hpp>
 
 namespace lns

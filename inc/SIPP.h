@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <boost/functional/hash.hpp>
-#include "SingleAgentSolver.h"
-#include "ReservationTable.h"
+#include "lns2/inc/SingleAgentSolver.h"
+#include "lns2/inc/ReservationTable.h"
 
 namespace lns
 {

@@ -1,4 +1,4 @@
-#include "ReservationTable.h"
+#include "lns2/inc/ReservationTable.h"
 
 namespace lns
 {

@@ -1,4 +1,4 @@
-#include "ECBS.h"
+#include "lns2/inc/CBS/ECBS.h"
 
 namespace lns
 {

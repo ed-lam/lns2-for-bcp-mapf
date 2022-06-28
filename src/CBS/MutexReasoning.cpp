@@ -1,5 +1,5 @@
-#include "MutexReasoning.h"
-#include "ConstraintPropagation.h"
+#include "lns2/inc/CBS/MutexReasoning.h"
+#include "lns2/inc/CBS/ConstraintPropagation.h"
 
 namespace lns
 {

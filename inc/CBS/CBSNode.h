@@ -1,6 +1,6 @@
 #pragma once
-#include "common.h"
-#include "Conflict.h"
+#include "lns2/inc/common.h"
+#include "lns2/inc/CBS/Conflict.h"
 
 namespace lns
 {

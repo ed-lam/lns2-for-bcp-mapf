@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "SingleAgentSolver.h"
+#include "lns2/inc/SingleAgentSolver.h"
 #include <unordered_set>
 
 namespace lns

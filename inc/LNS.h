@@ -1,12 +1,12 @@
 #pragma once
-#include "BasicLNS.h"
-#include "InitLNS.h"
+#include "lns2/inc/BasicLNS.h"
+#include "lns2/inc/InitLNS.h"
 
 //pibt related
-#include "simplegrid.h"
-#include "pibt_agent.h"
-#include "problem.h"
-#include "mapf.h"
+#include "lns2/inc/PIBT/simplegrid.h"
+#include "lns2/inc/PIBT/pibt_agent.h"
+#include "lns2/inc/PIBT/problem.h"
+#include "lns2/inc/PIBT/mapf.h"
 // #include "pibt.h"
 // #include "pps.h"
 // #include "winpibt.h"

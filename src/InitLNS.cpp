@@ -1,8 +1,8 @@
-#include "InitLNS.h"
+#include "lns2/inc/InitLNS.h"
 #include <queue>
 #include <algorithm>
-#include "GCBS.h"
-#include "PBS.h"
+#include "lns2/inc/CBS/GCBS.h"
+#include "lns2/inc/CBS/PBS.h"
 
 namespace lns
 {

@@ -1,4 +1,4 @@
-#include "RectangleReasoning.h"
+#include "lns2/inc/CBS/RectangleReasoning.h"
 
 namespace lns
 {

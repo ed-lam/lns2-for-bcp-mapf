@@ -1,4 +1,4 @@
-#include "PathTable.h"
+#include "lns2/inc/PathTable.h"
 
 namespace lns
 {

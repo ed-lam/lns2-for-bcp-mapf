@@ -4,7 +4,7 @@
 #define CONS_PROP_H
 
 #include <boost/unordered_set.hpp>
-#include "MDD.h"
+#include "lns2/inc/CBS/MDD.h"
 
 namespace lns
 {

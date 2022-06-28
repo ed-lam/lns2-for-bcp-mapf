@@ -1,5 +1,5 @@
-#include "AnytimeBCBS.h"
-#include "CBS.h"
+#include "lns2/inc/AnytimeBCBS.h"
+#include "lns2/inc/CBS/CBS.h"
 
 namespace lns
 {

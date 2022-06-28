@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include "graph.h"
+#include "lns2/inc/PIBT/graph.h"
 
 namespace lns
 {

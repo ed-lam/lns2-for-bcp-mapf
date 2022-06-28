@@ -1,7 +1,7 @@
-#include "IncrementalPairwiseMutexPropagation.hpp"
+#include "lns2/inc/CBS/IncrementalPairwiseMutexPropagation.hpp"
 
 #include <iostream>
-#include "ConstraintPropagation.h"
+#include "lns2/inc/CBS/ConstraintPropagation.h"
 
 namespace lns
 {

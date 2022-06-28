@@ -1,5 +1,5 @@
 #pragma once
-#include "CBSNode.h"
+#include "lns2/inc/CBS/CBSNode.h"
 
 namespace lns
 {

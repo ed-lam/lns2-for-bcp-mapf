@@ -5,8 +5,8 @@
 #include <random>
 #include <algorithm>
 #include <unordered_map>
-#include "node.h"
-#include "common.h"
+#include "lns2/inc/PIBT/node.h"
+#include "lns2/inc/common.h"
 
 namespace lns
 {

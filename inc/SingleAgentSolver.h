@@ -1,6 +1,6 @@
 ﻿#pragma once
-#include "Instance.h"
-#include "ConstraintTable.h"
+#include "lns2/inc/Instance.h"
+#include "lns2/inc/ConstraintTable.h"
 
 namespace lns
 {

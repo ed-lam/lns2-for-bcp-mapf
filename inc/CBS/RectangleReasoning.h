@@ -1,5 +1,5 @@
 #pragma once
-#include "MDD.h"
+#include "lns2/inc/CBS/MDD.h"
 
 namespace lns
 {

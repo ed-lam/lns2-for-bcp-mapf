@@ -1,7 +1,7 @@
 #pragma once
-#include "common.h"
-#include "SpaceTimeAStar.h"
-#include "SIPP.h"
+#include "lns2/inc/common.h"
+#include "lns2/inc/SpaceTimeAStar.h"
+#include "lns2/inc/SIPP.h"
 #include <random>
 
 namespace lns

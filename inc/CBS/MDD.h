@@ -1,6 +1,6 @@
 #pragma once
-#include "SingleAgentSolver.h"
-#include "ECBSNode.h"
+#include "lns2/inc/SingleAgentSolver.h"
+#include "lns2/inc/CBS/ECBSNode.h"
 #include <unordered_set>
 
 namespace lns

@@ -1,8 +1,8 @@
-#include "CorridorReasoning.h"
-#include "Conflict.h"
+#include "lns2/inc/CBS/CorridorReasoning.h"
+#include "lns2/inc/CBS/Conflict.h"
 #include <memory>
-#include "SpaceTimeAStar.h"
-#include "SIPP.h"
+#include "lns2/inc/SpaceTimeAStar.h"
+#include "lns2/inc/SIPP.h"
 
 namespace lns
 {

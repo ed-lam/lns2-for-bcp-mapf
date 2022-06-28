@@ -1,7 +1,7 @@
 #pragma once
-#include "ReservationTable.h"
-#include "Instance.h"
-#include "SingleAgentSolver.h"
+#include "lns2/inc/ReservationTable.h"
+#include "lns2/inc/Instance.h"
+#include "lns2/inc/SingleAgentSolver.h"
 
 namespace lns
 {

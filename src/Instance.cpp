@@ -1,8 +1,8 @@
-#include<boost/tokenizer.hpp>
+#include <boost/tokenizer.hpp>
 #include <algorithm>    // std::shuffle
 #include <random>      // std::default_random_engine
 #include <chrono>       // std::chrono::system_clock
-#include "Instance.h"
+#include "lns2/inc/Instance.h"
 
 namespace lns
 {

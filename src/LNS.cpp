@@ -1,5 +1,5 @@
-#include "LNS.h"
-#include "ECBS.h"
+#include "lns2/inc/LNS.h"
+#include "lns2/inc/CBS/ECBS.h"
 #include <queue>
 #include <algorithm>
 

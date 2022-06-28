@@ -5,8 +5,8 @@
  * Created by: Keisuke Okumura <okumura.k@coord.c.titech.ac.jp>
  */
 
-#include "problem.h"
-#include "util.h"
+#include "lns2/inc/PIBT/problem.h"
+#include "lns2/inc/PIBT/util.h"
 #include <random>
 
 namespace lns

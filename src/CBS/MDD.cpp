@@ -1,6 +1,6 @@
-#include "MDD.h"
+#include "lns2/inc/CBS/MDD.h"
 #include <iostream>
-#include "common.h"
+#include "lns2/inc/common.h"
 
 namespace lns
 {

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "node.h"
+#include "lns2/inc/PIBT/node.h"
 
 namespace lns
 {

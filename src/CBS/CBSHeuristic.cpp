@@ -1,5 +1,5 @@
-#include "CBSHeuristic.h"
-#include "CBS.h"
+#include "lns2/inc/CBS/CBSHeuristic.h"
+#include "lns2/inc/CBS/CBS.h"
 #include <queue>
 //#include <ilcplex/ilocplex.h>
 

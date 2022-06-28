@@ -1,6 +1,6 @@
 #pragma once
-#include "GCBSNode.h"
-#include "SpaceTimeAStar.h"
+#include "lns2/inc/CBS/GCBSNode.h"
+#include "lns2/inc/SpaceTimeAStar.h"
 
 namespace lns
 {

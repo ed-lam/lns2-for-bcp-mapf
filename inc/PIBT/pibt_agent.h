@@ -1,7 +1,7 @@
 #pragma once
 
-#include "node.h"
-#include "task.h"
+#include "lns2/inc/PIBT/node.h"
+#include "lns2/inc/PIBT/task.h"
 
 namespace lns
 {

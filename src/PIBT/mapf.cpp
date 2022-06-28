@@ -5,8 +5,8 @@
  * Created by: Keisuke Okumura <okumura.k@coord.c.titech.ac.jp>
  */
 
-#include "mapf.h"
-#include "util.h"
+#include "lns2/inc/PIBT/mapf.h"
+#include "lns2/inc/PIBT/util.h"
 
 namespace lns
 {

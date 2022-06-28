@@ -1,5 +1,5 @@
 #pragma once
-#include "BasicLNS.h"
+#include "lns2/inc/BasicLNS.h"
 
 namespace lns
 {

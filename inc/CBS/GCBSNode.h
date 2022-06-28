@@ -1,5 +1,5 @@
 #pragma once
-#include "Conflict.h"
+#include "lns2/inc/CBS/Conflict.h"
 
 namespace lns
 {
