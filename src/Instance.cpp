@@ -509,7 +509,7 @@ void Instance::savePaths(const string & file_name, const vector<Path*>& paths) c
 
 bool Instance::validateSolution(const vector<Path*>& paths, int sum_of_costs, int num_of_colliding_pairs) const
 {
-    cout << "Validate solution ..." << endl;
+    // cout << "Validate solution ..." << endl;
     if (paths.size() != start_locations.size())
     {
         cerr << "We have " << paths.size() << " for " << start_locations.size() << " agents." << endl;
@@ -619,7 +619,7 @@ bool Instance::validateSolution(const vector<Path*>& paths, int sum_of_costs, in
              " is different from that of the solution " << collisions << endl;
         exit(-1);
     }
-    cout << "Done!" << endl;
+    // cout << "Done!" << endl;
     return true;
 }
 
